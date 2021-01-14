@@ -28,5 +28,14 @@ public class PostsApiController {
     
     //게시글을 조회하는 메서드
     @GetMapping("/api/v1/posts/{id}")
-    public PostsResponseDto findById(@PathVariable Long id) { return postsService.findById(id); }
+    public PostsResponseDto findById(@PathVariable Long id) {
+        return postsService.findById(id);
+    }
+
+    //게시글을 삭제하는 메서드
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id){
+        postsService.delete(id);
+        return id;
+    }
 }
